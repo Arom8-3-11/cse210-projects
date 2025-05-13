@@ -83,17 +83,22 @@ class Program
                     break;
 
                 case "3":
-                    // Console.Write("Enter the filename to save the journal: ");
-                    string saveFilename = "journal.txt";
-                    // string saveFilename = Console.ReadLine();
+                    // saving to a csv file
+                    string saveFilename = "Journal.csv";
+                    
                     myJournal.SaveToFile(saveFilename);
+                    Console.WriteLine("");
+                    Console.WriteLine($"Journal saved to {saveFilename}.");
+                    Console.WriteLine("");
                     break;
 
                 case "4":
-                    Console.Write("Enter the filename to load the journal (e.g., journal.txt): ");
-                    string loadFilename = Console.ReadLine();
+                    // loading from a csv file
+                    string loadFilename = "Journal.csv";
+
                     myJournal.LoadFromFile(loadFilename);
                     Console.WriteLine("\nJournal Entries Loaded:");
+                    Console.WriteLine("");
                     // Display the loaded journal entries
                     // this is what I was missing origanally was causing the journal entries to not display
                     // after loading the file
@@ -101,7 +106,12 @@ class Program
                     break;
 
                 case "5":
-                    Console.WriteLine("Goodbye!");
+                    // Quit the program
+                    Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
+                    Console.WriteLine("");
+                    Console.WriteLine("Have a nice day, goodbye!");
+                    Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
+                    Console.WriteLine("");
                     break;
 
                 //this will restart the loop if the numbers

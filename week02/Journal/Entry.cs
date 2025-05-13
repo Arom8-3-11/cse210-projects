@@ -17,9 +17,13 @@ public class Entry
 
     public void DisplayEntry()
     {
+        Console.WriteLine("*  *  *  *  * Entry(s): *  *  *  *  *");
+        Console.WriteLine("");
         Console.WriteLine($"Date: {_date}");
+        Console.WriteLine("");
         Console.WriteLine($"Prompt: {_prompt}");
+        Console.WriteLine("");
         Console.WriteLine($"Response: {_response}");
-        Console.WriteLine();
+        Console.WriteLine("");
     }
 }
