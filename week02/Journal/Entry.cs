@@ -17,7 +17,6 @@ public class Entry
 
     public void DisplayEntry()
     {
-        Console.WriteLine("*  *  *  *  * Entry(s): *  *  *  *  *");
         Console.WriteLine("");
         Console.WriteLine($"Date: {_date}");
         Console.WriteLine("");

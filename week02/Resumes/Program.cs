@@ -30,7 +30,8 @@ class Program
         // Console.WriteLine(); // Add a blank line for better readability
         
         // job2.DisplayJobDetails();
-
+        // Print the current date in a readable format
+        Console.WriteLine("Date: " + DateTime.Now.ToString("yyyy-MM-dd"));
 
         // create new resume instance
         Resume myResume = new Resume();
@@ -43,5 +44,8 @@ class Program
 
         // display resume
         myResume.DisplayResume();
+        myResume.DisplayResume();
+        Console.WriteLine("Date: " + DateTime.Now.ToString("yyyy-MM-dd"));
+        
     }
 }
