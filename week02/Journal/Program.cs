@@ -68,9 +68,11 @@ class Program
                     string saveFilename = "Journal.csv";
                     
                     myJournal.SaveToFile(saveFilename);
+                    Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
                     Console.WriteLine("");
                     Console.WriteLine($"Journal saved to {saveFilename}.");
                     Console.WriteLine("");
+                    Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
                     break;
 
                 case "4":
@@ -85,6 +87,8 @@ class Program
                     // this is what I was missing origanally was causing the journal entries to not display
                     // after loading the file
                     myJournal.DisplayJournal();
+                    Console.WriteLine("");
+                    Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
                     break;
 
                 case "5":
