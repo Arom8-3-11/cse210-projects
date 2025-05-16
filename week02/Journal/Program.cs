@@ -1,3 +1,5 @@
+// is able to save and load journal entries to/from a csv file in comma format
+// automatically adds the date in entry.cs and added a bit of fun design to the program
 using System;
 using System.Collections.Generic;
 
@@ -90,6 +92,7 @@ class Program
                     Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
                     Console.WriteLine("");
                     Console.WriteLine("Have a nice day, goodbye!");
+                    Console.WriteLine("");
                     Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
                     Console.WriteLine("");
                     break;

@@ -38,6 +38,8 @@ public class Journal
                 string prompt = entry._prompt.Replace("\"", "\"\"");
                 string response = entry._response.Replace("\"", "\"\"");
 
+                // Escape double quotes in the entry
+                // Writes the entry to the file in CSV format
                 writer.WriteLine($"\"{date}\",\"{prompt}\",\"{response}\"");
             }
         }
@@ -80,7 +82,10 @@ public class Journal
             Console.WriteLine($"File {filename} not found.");
         }
     }
-    
+
+    // This method parses a CSV line, handling quoted strings and escaped quotes
+    // It splits the line into an array of strings
+    //is needed to load the file properly into terminal
     private string[] ParseCsvLine(string line)
     {
         var result = new List<string>();
