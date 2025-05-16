@@ -16,6 +16,11 @@ public class Journal
     //display entry
     public void DisplayJournal()
     {
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine("No journal entries to display.");
+            return;
+        }
         foreach (Entry entry in _entries)
         {
             entry.DisplayEntry();
@@ -25,7 +30,7 @@ public class Journal
     //save entry to file
     public void SaveToFile(string filename)
     {
-        using (StreamWriter writer = new StreamWriter(filename))
+        using (StreamWriter writer = new StreamWriter(filename, append: true))
         {
             foreach (Entry entry in _entries)
             {
@@ -33,11 +38,11 @@ public class Journal
                 string prompt = entry._prompt.Replace("\"", "\"\"");
                 string response = entry._response.Replace("\"", "\"\"");
 
-                writer.WriteLine($"\"{date}\"|\"{prompt}\"|\"{response}\"");
-                // writer.WriteLine($"{entry._date}|{entry._prompt}|{entry._response}");
+                writer.WriteLine($"\"{date}\",\"{prompt}\",\"{response}\"");
             }
         }
         Console.WriteLine("Journal saved successfully.");
+        Console.WriteLine("");
     }
 
     //load entry from file
@@ -49,8 +54,7 @@ public class Journal
             _entries.Clear();
             string[] lines = File.ReadAllLines(filename);
 
-            // Skip header
-            for (int i = 1; i < lines.Length; i++)
+            for (int i = 0; i < lines.Length; i++)
             {
                 string line = lines[i];
                 string[] parts = ParseCsvLine(line);
@@ -69,12 +73,14 @@ public class Journal
             Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
             Console.WriteLine("");
             Console.WriteLine("Journal loaded successfully.");
+            Console.WriteLine("");
         }
         else
         {
             Console.WriteLine($"File {filename} not found.");
         }
     }
+    
     private string[] ParseCsvLine(string line)
     {
         var result = new List<string>();
@@ -109,44 +115,3 @@ public class Journal
         return result.ToArray();
     }
 }
-        // if (File.Exists(filename))
-        // {
-        //     _entries.Clear();
-        //     string[] lines = File.ReadAllLines(filename);
-
-        //     for (int i = 1; i < lines.Length; i++)
-        //     {
-        //         string line = lines[i];
-        //         // Split CSV fields (handles commas inside quotes)
-        //         string[] parts = ParseCsvLine(line);
-
-        //         if (parts.Length == 3)
-        //         {
-        //             string date = parts[0].Replace("\"\"", "\"");
-        //             string prompt = parts[1].Replace("\"\"", "\"");
-        //             string response = parts[2].Replace("\"\"", "\"");
-
-        //             Entry entry = new Entry(prompt, response);
-        //             entry._date = date;
-        //             _entries.Add(entry);
-        //         }
-        // foreach (string line in lines)
-        // {
-        //     string[] parts = line.Split('|');
-        //     if (parts.Length == 3)
-        //     {
-        //         Entry entry = new Entry(parts[1], parts[2]);
-        //         entry._date = parts[0];
-        //         _entries.Add(entry);
-        //     }
-        // }
-        //             Console.WriteLine(" - - - - - - - - - - - - - - - - - - - - ");
-        //             Console.WriteLine("");
-        //             Console.WriteLine("Journal loaded successfully.");
-        //         }
-        //     else
-        //     {
-        //         Console.WriteLine("File not found.");
-        //     }
-        // }
-
