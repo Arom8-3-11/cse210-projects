@@ -1,3 +1,6 @@
+// for the scriptures and texts, I used a seperate file to create a library of scriptures that will be randomly picked
+// thread.sleep was used the give a pause effect to the text for fun
+// GetReferenceText() was used to get the reference scripture to display at the end of the program and is in Scripture.cs
 using System;
 class Program
 {
@@ -19,7 +22,7 @@ class Program
         Scripture scripture = library.GetRandomScripture();
 
 
-        // Orignal scripture reference and text
+        // Orignal scripture reference and text/testing
         // Reference reference = new Reference("John", 3, 16);
         // string text = "For God so loved the world that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
 
@@ -43,7 +46,7 @@ class Program
             if (scripture.IsCompletelyHidden())
             {
                 Console.Clear();
-                Console.WriteLine($"               You've memorized: {scripture.GetReferenceText()}");
+                Console.WriteLine($"               You've memorized: {scripture.GetReferenceText()}"); // display the reference scripture
                 Console.WriteLine("");
                 Console.WriteLine("Congratulations! The program will now end since you've finished!");
                 Console.WriteLine("");

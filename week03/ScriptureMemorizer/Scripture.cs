@@ -65,6 +65,7 @@ public class Scripture
         return true;
     }
 
+    // to get the reference scripture to display at the end of the program
     public string GetReferenceText()
     {
         return _reference.GetDisplayText();

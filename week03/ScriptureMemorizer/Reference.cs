@@ -19,7 +19,8 @@ public class Reference
         _book = book;
         _chapter = chapter;
         _verse = verse;
-        _endVerse = endVerse;
+        _endVerse = endVerse; //used to support the scripture ref with multiple verses
+        //also allows for Reference class to handle both single verses and verse ranges
     }
     public string GetDisplayText() //String
     //possible getters and setters
