@@ -18,6 +18,10 @@ class Program
         Thread.Sleep(2000);
         Console.WriteLine("Starting now...");
         Thread.Sleep(1000);
+
+
+
+
         Library library = new Library();
         Scripture scripture = library.GetRandomScripture();
 
