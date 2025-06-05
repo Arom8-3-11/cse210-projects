@@ -1,3 +1,5 @@
+// For exceeding requirements, I included a different animation for the breathing activity. There are some that are commented and unused, but those are for my own future reference.
+// In the ReflectionActivity, I added a queue to prevent the prompts and questions from repeating durting the same session. The prompts and questions are shuffled randomly each time the activity is run, ensuring a unique experience.
 using System;
 
 class Program

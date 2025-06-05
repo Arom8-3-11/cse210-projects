@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+// this is a subclass of Activity
 
 public class ReflectionActivity : Activity
 {
@@ -36,6 +37,43 @@ public class ReflectionActivity : Activity
         "How can you continue to grow from this experience in the future?"
     };
 
+    //Queue to keep prompts/questions from repeating
+    private Queue<string> _promptQueue;
+    private Queue<string> _questionQueue;
+
+    private void InitializePromptQueue()
+    {
+        var rnd = new Random();
+        _promptQueue = new Queue<string>(_prompts.OrderBy(x => rnd.Next()));
+    }
+
+    private string GetNextPrompt()
+    {
+        if (_promptQueue == null || _promptQueue.Count == 0)
+            InitializePromptQueue();
+        return _promptQueue.Dequeue();
+    }
+
+    private void InitializeQuestionQueue()
+    {
+        var rnd = new Random();
+        _questionQueue = new Queue<string>(_questions.OrderBy(x => rnd.Next()));
+    }
+
+    private string GetNextQuestion()
+    {
+        //null is to check if _questionQueue variable has not been initialized yet
+        //or if it has been emptied
+        //if it has been emptied, we reinitialize it with a new shuffled list
+        if (_questionQueue == null || _questionQueue.Count == 0)
+            InitializeQuestionQueue();
+        return _questionQueue.Dequeue();
+    }
+
+
+
+
+    // Main constructor for ReflectionActivity
     public ReflectionActivity() : base(
         "Reflection",
         "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
@@ -46,16 +84,20 @@ public class ReflectionActivity : Activity
         DisplayStartingMessage();
         Random rand = new Random();
         Console.WriteLine();
-        Console.WriteLine(_prompts[rand.Next(_prompts.Count)]);
-        ShowSpinner(3);
+        // Console.WriteLine(_prompts[rand.Next(_prompts.Count)]);
+        Console.WriteLine(GetNextPrompt());
+        ShowSpinner(10);
+        Console.WriteLine();
 
         int duration = GetDuration();
         DateTime endTime = DateTime.Now.AddSeconds(duration);
         while (DateTime.Now < endTime)
         {
-            string question = _questions[rand.Next(_questions.Count)];
+            // string question = _questions[rand.Next(_questions.Count)];
+            string question = GetNextQuestion();
             Console.WriteLine(question);
             ShowSpinner(5);
+            Console.WriteLine();
         }
         DisplayEndingMessage();
     }

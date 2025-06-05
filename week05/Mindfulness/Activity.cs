@@ -1,9 +1,5 @@
 using System;
-//Inheritance and encapsulation
-//No code duplication (shared logic in Activity)
-//Menu system and activity selection
-//Animations and countdowns
-//Each class in its own file
+// This is the base class for all activities in the Mindfulness project.
 
 public class Activity
 {

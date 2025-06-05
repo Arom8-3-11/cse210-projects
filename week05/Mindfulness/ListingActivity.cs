@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+// this is a subclass of Activity
 
 public class ListingActivity : Activity
 {
