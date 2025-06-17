@@ -1,3 +1,6 @@
+// I found this similar to last week's project, but just adding the functions of encapsulation
+// I made mine in which it will save onto a csv file and managed by another file
+
 using System;
 using System.Collections.Generic;
 
